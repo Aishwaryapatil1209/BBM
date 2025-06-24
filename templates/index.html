@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bhartiya Boudh Mahasabha</title>
+  <link rel="icon" type="image/png" href="logo2.png">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-color: #f5f3e9;
+      color: #333;
+    }
+    header {
+      position: relative;
+      height: 100vh;
+      background: url('{{ url_for('static', filename='bbm5.png') }}') no-repeat left center;
+
+      background-size: 59%;
+      background-position: left center;
+      background-repeat: no-repeat;
+      background-color: #f5f3e9;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(255,255,255,0.95);
+      position: fixed;
+      width: 100%;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .menu li a.active {
+  color: #fff;
+  background-color: #004080;
+  border-radius: 5px;
+  padding: 6px 12px;
+}
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.7rem;
+      font-weight: bold;
+      color: #1a1a1a;
+    }
+    .logo img {
+      height: 40px;
+    }
+    .menu {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+    }
+    .menu li a {
+      text-decoration: none;
+      color: #1a1a1a;
+      font-weight: 600;
+      padding: 6px 10px;
+    }
+    .menu li a:hover {
+      color: #004080;
+    }
+    .menu li a.join {
+      background-color: #1a1a1a;
+      color: white;
+      padding: 8px 15px;
+      border-radius: 5px;
+    }
+    .hero-text {
+      position: absolute;
+      top: 50%;
+      right: 5%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.5);
+      padding: 40px 30px;
+      border-radius: 10px;
+      max-width: 600px;
+    }
+    .hero-text h1 {
+      font-family: 'Merriweather', serif;
+      font-size: 3rem;
+      color: white;
+      margin-bottom: 15px;
+    }
+    .hero-text p {
+      font-size: 1.3rem;
+      font-style: italic;
+      color: #ddd;
+    }
+    .hero-text .quote {
+      color: #ffd700;
+      font-weight: bold;
+      margin-top: 10px;
+      font-style: normal;
+    }
+    section.info-cards {
+      display: flex;
+      justify-content: space-around;
+      padding: 60px 20px;
+      background-color: #fff;
+      text-align: center;
+      flex-wrap: wrap;
+    }
+    .card {
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      width: 30%;
+      min-width: 260px;
+      margin: 10px;
+    }
+    .card h3 {
+      color: #1a1a1a;
+      margin: 20px 0 10px;
+    }
+    .card p {
+      font-size: 0.95rem;
+      color: #333;
+    }
+    .card a {
+      display: inline-block;
+      margin-top: 10px;
+      color: #004080;
+      font-weight: bold;
+      text-decoration: none;
+    }
+  </style>
+
+
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="{{ url_for('static', filename='logo2.png') }}" alt="Logo">
+        BHARTIYA BOUDH
+      </div>
+      <ul class="menu">
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/events">Events</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+
+    </nav>
+    <div class="hero-text">
+      <h1>BHARTIYA BOUDH MAHASABHA</h1>
+      
+      <p>“I like the religion that teaches liberty, equality and fraternity.”</p>
+      <p class="quote">&ndash; Dr. B. R. Ambedkar</p>
+    </div>
+  </header>
+
+  <section class="info-cards">
+    <div class="card">
+      <img src="https://img.icons8.com/ios-filled/50/000000/museum.png"/>
+      <h3>About Us</h3>
+      <p>Learn about our mission and values that guide our actions and beliefs.</p>
+      <a href="/about" >Learn more</a>
+    </div>
+    <div class="card">
+      <img src="https://img.icons8.com/ios-filled/50/000000/calendar.png"/>
+      <h3>Upcoming Events</h3>
+      <p>Explore upcoming events and seminars happening across India.</p>
+      <a href="/events">View events</a>
+    </div>
+    <div class="card">
+  <img src="https://img.icons8.com/ios-filled/50/000000/image-gallery.png"/>
+  <h3>Gallery</h3>
+  <p>See images from our recent events, cultural activities, and gatherings.</p>
+  <a href="/gallery">View gallery</a>
+</div>
+
+  </section>
+  <section class="our-team" style="padding: 60px 20px; background-color: #f5f5f5; text-align: center;">
+  <h2 style="font-family: 'Merriweather', serif; font-size: 2.5rem; margin-bottom: 40px;">Our Team</h2>
+
+  <!-- PRESIDENT BLOCK -->
+  <div style="display: flex; justify-content: center; margin-bottom: 50px;">
+    <div style="background: #f5f3e9; padding: 30px; border-radius: 15px; width: 60%; max-width: 700px; box-shadow: 0 6px 20px rgba(0,0,0,0.15);">
+      <img src="{{ url_for('static', filename='bhante5.png') }}" alt="President" style="width: 100%; border-radius: 10px; height: 280px; object-fit: contain; object-position: top center;">
+      <h3 style="margin: 20px 0 5px; font-size: 1.8rem;">Bhante Arya Nagarjun Surei Sasai</h3>
+      <p style="font-size: 1.2rem; color: #555;">Chairman</p>
+    </div>
+  </div>
+
+  <!-- OTHER MEMBERS -->
+  <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 30px;">
+    <div style="background: white; padding: 20px; border-radius: 10px; width: 22%; min-width: 200px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+      <img src="{{ url_for('static', filename='bbm3.png') }}" alt="Secretary" style="width: 100%; border-radius: 10px; height: 250px; object-fit: cover;">
+      <h3 style="margin: 15px 0 5px;">Shri. Dinanath Raut</h3>
+      <p style="font-size: 1rem; color: #555;">Vice Chairman</p>
+    </div>
+
+    <div style="background:  #f5f3e9; padding: 20px; border-radius: 10px; width: 22%; min-width: 200px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+      <img src="{{ url_for('static', filename='Anand.png') }}" alt="Treasurer" style="width: 100%; border-radius: 10px; height: 250px; object-fit: contain;">
+      <h3 style="margin: 15px 0 5px;">Shri . Anand Tukaram Patil</h3>
+      <p style="font-size: 1rem; color: #555;">General Secretary</p>
+    </div>
+
+    <div style="background: white; padding: 20px; border-radius: 10px; width: 22%; min-width: 200px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+      <img src="{{ url_for('static', filename='bbm3.png') }}" alt="Member" style="width: 100%; border-radius: 10px; height: 250px; object-fit: cover;">
+      <h3 style="margin: 15px 0 5px;">Shri. Rohit D. Raut</h3>
+      <p style="font-size: 1rem; color: #555;">Joint Secretary</p>
+    </div>
+
+    <div style="background: #f5f3e9; padding: 20px; border-radius: 10px; width: 22%; min-width: 200px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+      <img src="{{ url_for('static', filename='umedlal.png') }}" alt="Member" style="width: 100%; border-radius: 10px; height: 250px; object-fit: contain;">
+      <h3 style="margin: 15px 0 5px;">Shri. Umedlal Raut</h3>
+      <p style="font-size: 1rem; color: #555;">Cashier</p>
+    </div>
+    <div style="background: white; padding: 20px; border-radius: 10px; width: 22%; min-width: 200px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+      <img src="{{ url_for('static', filename='bbm5.png') }}" alt="Member" style="width: 100%; border-radius: 10px; height: 250px; object-fit: cover;">
+      <h3 style="margin: 15px 0 5px;">Shri. Charandas Chikate</h3>
+      <p style="font-size: 1rem; color: #555;">Member</p>
+    </div>
+    <div style="background: white; padding: 20px; border-radius: 10px; width: 22%; min-width: 200px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+      <img src="{{ url_for('static', filename='bbm5.png') }}" alt="Member" style="width: 100%; border-radius: 10px; height: 250px; object-fit: cover;">
+      <h3 style="margin: 15px 0 5px;">Shri. Haridas Rangari</h3>
+      <p style="font-size: 1rem; color: #555;">Member</p>
+    </div>
+    <div style="background: white; padding: 20px; border-radius: 10px; width: 22%; min-width: 200px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+      <img src="{{ url_for('static', filename='bbm5.png') }}" alt="Member" style="width: 100%; border-radius: 10px; height: 250px; object-fit: cover;">
+      <h3 style="margin: 15px 0 5px;">Shri. Yashwant Bhalerao</h3>
+      <p style="font-size: 1rem; color: #555;">Member</p>
+    </div>
+    <div style="background: white; padding: 20px; border-radius: 10px; width: 22%; min-width: 200px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+      <img src="{{ url_for('static', filename='bbm5.png') }}" alt="Member" style="width: 100%; border-radius: 10px; height: 250px; object-fit: cover;">
+      <h3 style="margin: 15px 0 5px;">Shri. Govindrao Kapse</h3>
+      <p style="font-size: 1rem; color: #555;">Member</p>
+    </div>
+
+  </div>
+</section>
+
+
+
+  <script>
+  // Get current file name from URL
+  const currentPage = location.pathname.split('/').pop();
+
+  // Highlight only the matching nav link
+  document.querySelectorAll('.menu li a').forEach(link => {
+    if (link.getAttribute('href') === currentPage) {
+      link.classList.add('active');
+    }
+  });
+
+  const currentPath = window.location.pathname;
+  document.querySelectorAll('.menu li a').forEach(link => {
+    if (link.getAttribute('href') === currentPath) {
+      link.classList.add('active');
+    }
+  });
+</script>
+
+
+
+</body>
+</html>

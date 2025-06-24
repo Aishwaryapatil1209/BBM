@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About - Bhartiya Boudh Mahasabha</title>
+  <link rel="icon" type="image/png" href="logo2.png">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-color: #f5f3e9;
+      color: #333;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(255,255,255,0.95);
+      position: fixed;
+      width: 100%;
+      z-index: 100;
+      top: 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      font-size: 1.7rem;
+      font-weight: bold;
+      color: #1a1a1a;
+      gap: 10px;
+    }
+    .logo img { height: 40px; }
+    .menu {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+    }
+    .menu li a {
+      text-decoration: none;
+      color: #1a1a1a;
+      font-weight: 600;
+      padding: 6px 10px;
+    }
+    .menu li a:hover { color: #004080; }
+    .menu li a.active {
+      color: #fff;
+      background-color: #004080;
+      border-radius: 5px;
+      padding: 6px 12px;
+    }
+
+    .content {
+      padding: 140px 50px 50px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .content h1 {
+      font-family: 'Merriweather', serif;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .about-text {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 40px;
+      text-align: justify;
+    }
+
+    .info-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+
+    .info-box {
+      flex: 1;
+      min-width: 280px;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 25px;
+    }
+
+    .info-box h2 {
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+      color: #004080;
+    }
+
+    .info-box p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .qr-section {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .qr-section img {
+      width: 200px;
+      height: 200px;
+      margin-top: 15px;
+      border: 2px solid #ddd;
+      padding: 5px;
+      border-radius: 10px;
+      background: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">
+      <img src="{{ url_for('static', filename='logo2.png') }}" alt="Logo">
+      BHARTIYA BOUDH
+    </div>
+    <ul class="menu">
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/events">Events</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="content">
+    <h1>About Bhartiya Boudh Mahasabha</h1>
+
+    <p class="about-text">
+      The Bhartiya Boudh Mahasabha is committed to promoting the teachings of Lord Buddha and the values of Dr. B.R. Ambedkar. We work toward social transformation through Dhamma, organizing awareness campaigns, spiritual teachings, and social development initiatives that spread harmony, equality, and brotherhood in society.
+    </p>
+
+    <div class="info-section">
+      <div class="info-box">
+        <h2>Our Mission</h2>
+        <p>To uplift society through the Dhamma teachings of non-violence, compassion, and wisdom. We aim to empower every individual through knowledge, equality, and unity.</p>
+      </div>
+      <div class="info-box">
+        <h2>Our Vision</h2>
+        <p>To build a peaceful and awakened society where every individual lives with dignity, guided by the noble path of Buddhism and Ambedkarite thoughts.</p>
+      </div>
+    </div>
+
+    <div class="qr-section">
+      <h2>Scan to Connect with Us</h2>
+      <img src="{{ url_for('static', filename='qrcode.png') }}" alt="QR Code">
+    </div>
+  </div>
+
+  <!-- Active nav highlight -->
+  <script>
+    const currentPath = window.location.pathname;
+    document.querySelectorAll('.menu li a').forEach(link => {
+      if (link.getAttribute('href') === currentPath) {
+        link.classList.add('active');
+      }
+    });
+  </script>
+</body>
+</html>
