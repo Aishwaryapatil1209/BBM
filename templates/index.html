@@ -21,7 +21,6 @@
       position: relative;
       height: 100vh;
       background: url('{{ url_for('static', filename='bbm5.png') }}') no-repeat left center;
-
       background-size: 59%;
       background-position: left center;
       background-repeat: no-repeat;
@@ -39,12 +38,11 @@
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
     .menu li a.active {
-  color: #fff;
-  background-color: #004080;
-  border-radius: 5px;
-  padding: 6px 12px;
-}
-
+      color: #fff;
+      background-color: #004080;
+      border-radius: 5px;
+      padding: 6px 12px;
+    }
     .logo {
       display: flex;
       align-items: center;
@@ -60,6 +58,10 @@
       display: flex;
       gap: 25px;
       list-style: none;
+    }
+    
+    .menu-toggle {
+      display: none;
     }
     .menu li a {
       text-decoration: none;
@@ -135,29 +137,234 @@
       font-weight: bold;
       text-decoration: none;
     }
+
+    /* Mobile Responsive Styles */
+    @media (max-width: 768px) {
+        nav {
+    flex-direction: row;
+    padding: 15px 20px;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+      
+      .logo {
+        font-size: 1.2rem;
+        margin-bottom: 0;
+        text-align: left;
+        width: auto;
+      }
+      
+      .logo img {
+        height: 30px;
+      }
+      
+      .menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: 5px;
+        color: #1a1a1a;
+      }
+      
+      .menu {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: rgba(255,255,255,0.98);
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        padding: 20px;
+      }
+      
+      .menu.active {
+        display: flex;
+      }
+      
+      .menu li {
+        width: 100%;
+      }
+      
+      .menu li a {
+        display: block;
+        padding: 15px;
+        text-align: center;
+        border-radius: 5px;
+        border: 1px solid #e0e0e0;
+        margin-bottom: 5px;
+      }
+      
+      header {
+    height: auto;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    padding-top: 80px; /* kam kar do */
+  }
+       .hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  width: 90%;
+}
+      
+      .hero-text h1 {
+        font-size: 2rem;
+      }
+      
+      .hero-text p {
+        font-size: 1.1rem;
+      }
+      
+      section.info-cards {
+        flex-direction: column;
+        padding: 40px 20px;
+        align-items: center;
+      }
+      
+      .card {
+        width: 90%;
+        max-width: 400px;
+        margin: 15px 0;
+      }
+      
+      .our-team {
+        padding: 40px 20px !important;
+      }
+      
+      .our-team h2 {
+        font-size: 2rem !important;
+        margin-bottom: 30px !important;
+      }
+      
+      .our-team > div:first-of-type {
+        margin-bottom: 30px !important;
+      }
+      
+      .our-team > div:first-of-type > div {
+        width: 90% !important;
+        max-width: 400px !important;
+        padding: 20px !important;
+      }
+      
+      .our-team > div:first-of-type img {
+        height: 200px !important;
+      }
+      
+      .our-team > div:first-of-type h3 {
+        font-size: 1.4rem !important;
+      }
+      
+      .our-team > div:last-of-type {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 20px !important;
+      }
+      
+      .our-team > div:last-of-type > div {
+        width: 80% !important;
+        max-width: 300px !important;
+        min-width: auto !important;
+      }
+      
+      .our-team > div:last-of-type img {
+        height: 200px !important;
+      }
+      
+      footer {
+        padding: 20px 15px !important;
+        font-size: 0.85rem !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .logo {
+        font-size: 1rem;
+      }
+      
+      .logo > div > span {
+        font-size: 1.2rem !important;
+      }
+      
+      .logo > div > p {
+        font-size: 0.7rem !important;
+      }
+      
+      .hero-text {
+        margin: 10px;
+        padding: 20px 15px;
+      }
+      
+      .hero-text h1 {
+        font-size: 1.6rem;
+      }
+      
+      .hero-text p {
+        font-size: 1rem;
+      }
+      
+      .card {
+        width: 95%;
+        padding: 20px;
+      }
+      
+      .our-team h2 {
+        font-size: 1.8rem !important;
+      }
+      
+      .our-team > div:first-of-type > div {
+        width: 95% !important;
+        padding: 15px !important;
+      }
+      
+      .our-team > div:first-of-type h3 {
+        font-size: 1.2rem !important;
+      }
+      
+      .our-team > div:last-of-type > div {
+        width: 90% !important;
+        max-width: 280px !important;
+      }
+      
+      footer {
+        font-size: 0.8rem !important;
+      }
+    }
   </style>
-
-
 </head>
 <body>
   <header>
     <nav>
       <div class="logo">
         <img src="{{ url_for('static', filename='logo2.png') }}" alt="Logo">
-        BHARTIYA BOUDH
+        <div style="display: flex; flex-direction: column;">
+          <span style="font-size: 1.7rem; font-weight: bold; color: #1a1a1a;">BHARTIYA BOUDH MAHASABHA</span>
+          <p style="font-size: 0.9rem; color: #444; margin: 0;">(Regd. Under the Societies Registration Act XXI of 1860) No. B-8 & Bombay Public Trust Act, 1950 (Bom. XXIX of 1950) No. F-611(N)</p>
+        </div>
       </div>
-      <ul class="menu">
-      <li><a href="/">Home</a></li>
-      <li><a href="/about">About</a></li>
-      <li><a href="/events">Events</a></li>
-      <li><a href="/contact">Contact</a></li>
-    </ul>
 
+      <ul class="menu">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/events">Events</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+      
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
     </nav>
     <div class="hero-text">
       <h1>BHARTIYA BOUDH MAHASABHA</h1>
-      
-      <p>“I like the religion that teaches liberty, equality and fraternity.”</p>
+      <p>"I like the religion that teaches liberty, equality and fraternity."</p>
       <p class="quote">&ndash; Dr. B. R. Ambedkar</p>
     </div>
   </header>
@@ -176,96 +383,107 @@
       <a href="/events">View events</a>
     </div>
     <div class="card">
-  <img src="https://img.icons8.com/ios-filled/50/000000/image-gallery.png"/>
-  <h3>Gallery</h3>
-  <p>See images from our recent events, cultural activities, and gatherings.</p>
-  <a href="/gallery">View gallery</a>
-</div>
-
+      <img src="https://img.icons8.com/ios-filled/50/000000/image-gallery.png"/>
+      <h3>Gallery</h3>
+      <p>See images from our recent events, cultural activities, and gatherings.</p>
+      <a href="/gallery">View gallery</a>
+    </div>
   </section>
+
   <section class="our-team" style="padding: 60px 20px; background-color: #f5f5f5; text-align: center;">
-  <h2 style="font-family: 'Merriweather', serif; font-size: 2.5rem; margin-bottom: 40px;">Our Team</h2>
+    <h2 style="font-family: 'Merriweather', serif; font-size: 2.5rem; margin-bottom: 40px;">Our Team</h2>
 
-  <!-- PRESIDENT BLOCK -->
-  <div style="display: flex; justify-content: center; margin-bottom: 50px;">
-    <div style="background: #f5f3e9; padding: 30px; border-radius: 15px; width: 60%; max-width: 700px; box-shadow: 0 6px 20px rgba(0,0,0,0.15);">
-      <img src="{{ url_for('static', filename='bhante5.png') }}" alt="President" style="width: 100%; border-radius: 10px; height: 280px; object-fit: contain; object-position: top center;">
-      <h3 style="margin: 20px 0 5px; font-size: 1.8rem;">Bhante Arya Nagarjun Surei Sasai</h3>
-      <p style="font-size: 1.2rem; color: #555;">Chairman</p>
-    </div>
-  </div>
-
-  <!-- OTHER MEMBERS -->
-  <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 30px;">
-    <div style="background: white; padding: 20px; border-radius: 10px; width: 22%; min-width: 200px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-      <img src="{{ url_for('static', filename='bbm3.png') }}" alt="Secretary" style="width: 100%; border-radius: 10px; height: 250px; object-fit: cover;">
-      <h3 style="margin: 15px 0 5px;">Shri. Dinanath Raut</h3>
-      <p style="font-size: 1rem; color: #555;">Vice Chairman</p>
+    <!-- PRESIDENT BLOCK -->
+    <div style="display: flex; justify-content: center; margin-bottom: 50px;">
+      <div style="background: #f5f3e9; padding: 30px; border-radius: 15px; width: 60%; max-width: 700px; box-shadow: 0 6px 20px rgba(0,0,0,0.15);">
+        <img src="{{ url_for('static', filename='bhante5.png') }}" alt="President" style="width: 100%; border-radius: 10px; height: 280px; object-fit: contain; object-position: top center;">
+        <h3 style="margin: 20px 0 5px; font-size: 1.8rem;">Bhante Arya Nagarjun Surei Sasai</h3>
+        <p style="font-size: 1.2rem; color: #555;">Chairman</p>
+      </div>
     </div>
 
-    <div style="background:  #f5f3e9; padding: 20px; border-radius: 10px; width: 22%; min-width: 200px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-      <img src="{{ url_for('static', filename='Anand.png') }}" alt="Treasurer" style="width: 100%; border-radius: 10px; height: 250px; object-fit: contain;">
-      <h3 style="margin: 15px 0 5px;">Shri . Anand Tukaram Patil</h3>
-      <p style="font-size: 1rem; color: #555;">General Secretary</p>
-    </div>
+    <!-- OTHER MEMBERS -->
+    <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 30px;">
+      <div style="background: #f5f3e9; padding: 20px; border-radius: 10px; width: 22%; min-width: 200px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+        <img src="{{ url_for('static', filename='dinanath.png') }}" alt="Secretary" style="width: 100%; border-radius: 10px; height: 250px; object-fit: contain;">
+        <h3 style="margin: 15px 0 5px;">Shri. Dinanath Raut</h3>
+        <p style="font-size: 1rem; color: #555;">Vice Chairman</p>
+      </div>
 
-    <div style="background: white; padding: 20px; border-radius: 10px; width: 22%; min-width: 200px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-      <img src="{{ url_for('static', filename='bbm3.png') }}" alt="Member" style="width: 100%; border-radius: 10px; height: 250px; object-fit: cover;">
-      <h3 style="margin: 15px 0 5px;">Shri. Rohit D. Raut</h3>
-      <p style="font-size: 1rem; color: #555;">Joint Secretary</p>
-    </div>
+      <div style="background:  #f5f3e9; padding: 20px; border-radius: 10px; width: 22%; min-width: 200px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+        <img src="{{ url_for('static', filename='Anand.png') }}" alt="Treasurer" style="width: 100%; border-radius: 10px; height: 250px; object-fit: contain;">
+        <h3 style="margin: 15px 0 5px;">Shri . Anand Tukaram Patil</h3>
+        <p style="font-size: 1rem; color: #555;">General Secretary</p>
+      </div>
 
-    <div style="background: #f5f3e9; padding: 20px; border-radius: 10px; width: 22%; min-width: 200px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-      <img src="{{ url_for('static', filename='umedlal.png') }}" alt="Member" style="width: 100%; border-radius: 10px; height: 250px; object-fit: contain;">
-      <h3 style="margin: 15px 0 5px;">Shri. Umedlal Raut</h3>
-      <p style="font-size: 1rem; color: #555;">Cashier</p>
-    </div>
-    <div style="background: white; padding: 20px; border-radius: 10px; width: 22%; min-width: 200px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-      <img src="{{ url_for('static', filename='bbm5.png') }}" alt="Member" style="width: 100%; border-radius: 10px; height: 250px; object-fit: cover;">
-      <h3 style="margin: 15px 0 5px;">Shri. Charandas Chikate</h3>
-      <p style="font-size: 1rem; color: #555;">Member</p>
-    </div>
-    <div style="background: white; padding: 20px; border-radius: 10px; width: 22%; min-width: 200px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-      <img src="{{ url_for('static', filename='bbm5.png') }}" alt="Member" style="width: 100%; border-radius: 10px; height: 250px; object-fit: cover;">
-      <h3 style="margin: 15px 0 5px;">Shri. Haridas Rangari</h3>
-      <p style="font-size: 1rem; color: #555;">Member</p>
-    </div>
-    <div style="background: white; padding: 20px; border-radius: 10px; width: 22%; min-width: 200px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-      <img src="{{ url_for('static', filename='bbm5.png') }}" alt="Member" style="width: 100%; border-radius: 10px; height: 250px; object-fit: cover;">
-      <h3 style="margin: 15px 0 5px;">Shri. Yashwant Bhalerao</h3>
-      <p style="font-size: 1rem; color: #555;">Member</p>
-    </div>
-    <div style="background: white; padding: 20px; border-radius: 10px; width: 22%; min-width: 200px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-      <img src="{{ url_for('static', filename='bbm5.png') }}" alt="Member" style="width: 100%; border-radius: 10px; height: 250px; object-fit: cover;">
-      <h3 style="margin: 15px 0 5px;">Shri. Govindrao Kapse</h3>
-      <p style="font-size: 1rem; color: #555;">Member</p>
-    </div>
+      <div style="background: #f5f3e9; padding: 20px; border-radius: 10px; width: 22%; min-width: 200px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+        <img src="{{ url_for('static', filename='rohit.png') }}" alt="Member" style="width: 100%; border-radius: 10px; height: 250px; object-fit: contain;">
+        <h3 style="margin: 15px 0 5px;">Shri. Rohit D. Raut</h3>
+        <p style="font-size: 1rem; color: #555;">Joint Secretary</p>
+      </div>
 
-  </div>
-</section>
+      <div style="background: #f5f3e9; padding: 20px; border-radius: 10px; width: 22%; min-width: 200px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+        <img src="{{ url_for('static', filename='umedlal.png') }}" alt="Member" style="width: 100%; border-radius: 10px; height: 250px; object-fit: contain;">
+        <h3 style="margin: 15px 0 5px;">Shri. Umedlal Raut</h3>
+        <p style="font-size: 1rem; color: #555;">Cashier</p>
+      </div>
+      <div style="background: #f5f3e9; padding: 20px; border-radius: 10px; width: 22%; min-width: 200px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+        <img src="{{ url_for('static', filename='Charandas Chikate.png') }}" alt="Member" style="width: 100%; border-radius: 10px; height: 250px; object-fit: contain;">
+        <h3 style="margin: 15px 0 5px;">Shri. Charandas Chikate</h3>
+        <p style="font-size: 1rem; color: #555;">Member</p>
+      </div>
+      <div style="background: #f5f3e9; padding: 20px; border-radius: 10px; width: 22%; min-width: 200px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+        <img src="{{ url_for('static', filename='rangari.png') }}" alt="Member" style="width: 100%; border-radius: 10px; height: 250px; object-fit: contain;">
+        <h3 style="margin: 15px 0 5px;">Shri. Haridas Rangari</h3>
+        <p style="font-size: 1rem; color: #555;">Member</p>
+      </div>
+      <div style="background: #f5f3e9; padding: 20px; border-radius: 10px; width: 22%; min-width: 200px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+        <img src="{{ url_for('static', filename='yashwant.png') }}" alt="Member" style="width: 100%; border-radius: 10px; height: 250px; object-fit: contain;">
+        <h3 style="margin: 15px 0 5px;">Shri. Yashwant Bhalerao</h3>
+        <p style="font-size: 1rem; color: #555;">Member</p>
+      </div>
+      <div style="background: #f5f3e9; padding: 20px; border-radius: 10px; width: 22%; min-width: 200px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+        <img src="{{ url_for('static', filename='kapse.png') }}" alt="Member" style="width: 100%; border-radius: 10px; height: 250px; object-fit: contain;">
+        <h3 style="margin: 15px 0 5px;">Shri. Govindrao Kapse</h3>
+        <p style="font-size: 1rem; color: #555;">Member</p>
+      </div>
+    </div>
+  </section>
 
-
+  <footer style="background-color: #1a1a1a; color: white; text-align: center; padding: 20px 10px; font-size: 0.95rem;">
+    Bhartiya Boudh Mahasabha's Patron was Dr. B.R. Ambedkar & Mr. Vali Sinha. Promoting Equality, Freedom & Fraternity<br>
+    &copy;  1957 Bhartiya Boudh Mahasabha. All rights reserved.
+  </footer>
 
   <script>
-  // Get current file name from URL
-  const currentPage = location.pathname.split('/').pop();
-
-  // Highlight only the matching nav link
-  document.querySelectorAll('.menu li a').forEach(link => {
-    if (link.getAttribute('href') === currentPage) {
-      link.classList.add('active');
+    function toggleMenu() {
+      const menu = document.querySelector('.menu');
+      menu.classList.toggle('active');
     }
-  });
 
-  const currentPath = window.location.pathname;
-  document.querySelectorAll('.menu li a').forEach(link => {
-    if (link.getAttribute('href') === currentPath) {
-      link.classList.add('active');
-    }
-  });
-</script>
+    // Close menu when clicking on a menu item
+    document.querySelectorAll('.menu li a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.querySelector('.menu').classList.remove('active');
+      });
+    });
 
+    // Get current file name from URL
+    const currentPage = location.pathname.split('/').pop();
 
+    // Highlight only the matching nav link
+    document.querySelectorAll('.menu li a').forEach(link => {
+      if (link.getAttribute('href') === currentPage) {
+        link.classList.add('active');
+      }
+    });
 
+    const currentPath = window.location.pathname;
+    document.querySelectorAll('.menu li a').forEach(link => {
+      if (link.getAttribute('href') === currentPath) {
+        link.classList.add('active');
+      }
+    });
+  </script>
 </body>
 </html>

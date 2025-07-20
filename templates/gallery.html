@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Gallery</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery - Bhartiya Boudh Mahasabha</title>
+  <link rel="icon" type="image/png" href="logo2.png">
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans&display=swap" rel="stylesheet">
   <style>
     * {
@@ -24,38 +26,49 @@
       position: fixed;
       width: 100%;
       z-index: 100;
+      top: 0;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-    .menu li a.active {
-      color: #fff;
-      background-color: #004080;
-      border-radius: 5px;
-      padding: 6px 12px;
     }
     .logo {
       display: flex;
       align-items: center;
-      gap: 10px;
       font-size: 1.7rem;
       font-weight: bold;
       color: #1a1a1a;
+      gap: 10px;
     }
     .logo img {
       height: 40px;
     }
+    
     .menu {
       display: flex;
       gap: 25px;
       list-style: none;
     }
+    
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 5px;
+      color: #1a1a1a;
+    }
+    
     .menu li a {
       text-decoration: none;
       color: #1a1a1a;
       font-weight: 600;
       padding: 6px 10px;
     }
-    .menu li a:hover {
-      color: #004080;
+    .menu li a:hover { color: #004080; }
+    .menu li a.active {
+      color: #fff;
+      background-color: #004080;
+      border-radius: 5px;
+      padding: 6px 12px;
     }
 
     h1 {
@@ -137,11 +150,225 @@
     .nav-left { left: -50px; }
     .nav-right { right: -50px; }
 
-    @media (max-width: 600px) {
-      .nav-left, .nav-right {
+    footer {
+      background-color: #1a1a1a;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+      font-size: 0.95rem;
+    }
+
+    /* Mobile Responsive Styles */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: row;
+        padding: 15px 20px;
+        align-items: center;
+        justify-content: space-between;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+      }
+      
+      .logo {
+        font-size: 1.2rem;
+        margin-bottom: 0;
+        text-align: left;
+        width: auto;
+      }
+      
+      .logo img {
+        height: 30px;
+      }
+      
+      .menu-toggle {
+        display: block;
+      }
+      
+      .menu {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: rgba(255,255,255,0.98);
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        padding: 20px;
+      }
+      
+      .menu.active {
+        display: flex;
+      }
+      
+      .menu li {
+        width: 100%;
+      }
+      
+      .menu li a {
+        display: block;
+        padding: 15px;
+        text-align: center;
+        border-radius: 5px;
+        border: 1px solid #e0e0e0;
+        margin-bottom: 5px;
+      }
+
+      h1 {
+        font-size: 2.2rem;
+        padding: 130px 20px 10px;
+      }
+
+      .gallery-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        padding: 30px 20px;
+      }
+
+      .gallery-container img {
+        height: 200px;
+      }
+
+      .lightbox-content {
+        max-width: 90%;
+        max-height: 85%;
+      }
+
+      .lightbox-caption {
+        font-size: 1rem;
+        margin-top: 10px;
+      }
+
+      .nav-arrow {
         font-size: 2rem;
-        left: 10px;
-        right: 10px;
+      }
+      
+      .nav-left { left: 10px; }
+      .nav-right { right: 10px; }
+
+      footer {
+        padding: 20px 15px;
+        font-size: 0.85rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      nav {
+        padding: 12px 15px;
+      }
+      
+      .logo {
+        font-size: 1rem;
+      }
+      
+      .logo > div > span {
+        font-size: 1.2rem !important;
+      }
+      
+      .logo > div > p {
+        font-size: 0.7rem !important;
+      }
+
+      h1 {
+        font-size: 1.8rem;
+        padding: 140px 15px 8px;
+      }
+
+      .gallery-container {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 12px;
+        padding: 25px 15px;
+      }
+
+      .gallery-container img {
+        height: 150px;
+      }
+
+      .lightbox-content {
+        max-width: 95%;
+        max-height: 80%;
+      }
+
+      .lightbox-caption {
+        font-size: 0.9rem;
+        margin-top: 8px;
+      }
+
+      .close-lightbox {
+        top: -25px;
+        font-size: 1.8rem;
+      }
+
+      .nav-arrow {
+        font-size: 1.8rem;
+      }
+
+      footer {
+        font-size: 0.8rem;
+        padding: 12px 8px;
+      }
+    }
+
+    /* Extra small phones (320px and below) */
+    @media (max-width: 320px) {
+      nav {
+        padding: 10px 12px;
+      }
+      
+      .logo {
+        font-size: 0.9rem;
+      }
+      
+      .logo > div > span {
+        font-size: 1.1rem !important;
+      }
+      
+      .logo > div > p {
+        font-size: 0.6rem !important;
+      }
+
+      h1 {
+        font-size: 1.6rem;
+        padding: 150px 12px 6px;
+      }
+
+      .gallery-container {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 10px;
+        padding: 20px 12px;
+      }
+
+      .gallery-container img {
+        height: 120px;
+      }
+
+      .lightbox-content {
+        max-width: 98%;
+        max-height: 75%;
+      }
+
+      .lightbox-caption {
+        font-size: 0.8rem;
+        margin-top: 6px;
+      }
+
+      .close-lightbox {
+        top: -20px;
+        font-size: 1.6rem;
+      }
+
+      .nav-arrow {
+        font-size: 1.6rem;
+      }
+
+      .nav-left { left: 5px; }
+      .nav-right { right: 5px; }
+
+      footer {
+        font-size: 0.75rem;
+        padding: 10px 6px;
       }
     }
   </style>
@@ -152,14 +379,21 @@
 <nav>
   <div class="logo">
     <img src="{{ url_for('static', filename='logo2.png') }}" alt="Logo">
-    BHARTIYA BOUDH
+    <div style="display: flex; flex-direction: column;">
+      <span style="font-size: 1.7rem; font-weight: bold; color: #1a1a1a;">BHARTIYA BOUDH MAHASABHA</span>
+      <p style="font-size: 0.9rem; color: #444; margin: 0;">(Regd. Under the Societies Registration Act XXI of 1860) No. B-8 & Bombay Public Trust Act, 1950 (Bom. XXIX of 1950) No. F-611(N)</p>
+    </div>
   </div>
+  
   <ul class="menu">
     <li><a href="/">Home</a></li>
     <li><a href="/about">About</a></li>
     <li><a href="/events">Events</a></li>
+    <li><a href="/gallery" class="active">Gallery</a></li>
     <li><a href="/contact">Contact</a></li>
   </ul>
+  
+  <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu">☰</button>
 </nav>
 
 <!-- Page Title -->
@@ -184,9 +418,26 @@
   </div>
 </div>
 
+<footer>
+  Bhartiya Boudh Mahasabha's Patron was Dr. B.R. Ambedkar & Mr. Vali Sinha. Promoting Equality, Freedom & Fraternity<br>
+  &copy; 1957 Bhartiya Boudh Mahasabha. All rights reserved.
+</footer>
+
 <script>
   const images = Array.from(document.querySelectorAll('.gallery-container img'));
   let currentIndex = 0;
+
+  function toggleMenu() {
+    const menu = document.querySelector('.menu');
+    menu.classList.toggle('active');
+  }
+
+  // Close mobile menu when link is clicked
+  document.querySelectorAll('.menu li a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.querySelector('.menu').classList.remove('active');
+    });
+  });
 
   function openLightbox(index) {
     currentIndex = index;
@@ -228,7 +479,7 @@
     if (e.target === this) closeLightbox();
   });
 
-  // Highlight current nav item
+  // Highlight current page
   const currentPath = window.location.pathname;
   document.querySelectorAll('.menu li a').forEach(link => {
     if (link.getAttribute('href') === currentPath) {

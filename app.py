@@ -29,27 +29,9 @@ def about():
 
 @app.route("/events")
 def events():
-    events_list = [
-        {
-            "date": "2025-07-05",
-            "title": "Buddha Purnima Celebration",
-            "description": "A cultural program featuring Dhamma teachings and meditation practices.",
-            "venue": "Tripitaka Smruti, 721 Buddha Nagar"
-        },
-        {
-            "date": "2025-08-15",
-            "title": "Independence Day Gathering",
-            "description": "Discussion on Buddhist contributions to Indian society and flag hoisting.",
-            "venue": "Ba. Rajabhau Khobragade Hall"
-        },
-        {
-            "date": "2025-10-02",
-            "title": "Gandhi Jayanti Seminar",
-            "description": "Peace walk followed by an educational talk on Buddhism and Ahimsa.",
-            "venue": "BBM Central Office, Nagpur"
-        }
-    ]
+    events_list = []  # Empty list to simulate no events
     return render_template("events.html", events=events_list)
+
 
 
 @app.route("/contact")

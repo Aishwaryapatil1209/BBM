@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact - Bhartiya Boudh Mahasabha</title>
   <link rel="icon" type="image/png" href="logo2.png">
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans&display=swap" rel="stylesheet">
@@ -43,6 +44,15 @@
       display: flex;
       gap: 25px;
       list-style: none;
+    }
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 5px;
+      color: #1a1a1a;
     }
     .menu li a {
       text-decoration: none;
@@ -143,20 +153,266 @@
       border-radius: 10px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
+    footer {
+      background-color: #1a1a1a;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+      font-size: 0.95rem;
+    }
+
+    /* Mobile Responsive Styles */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: row;
+        padding: 15px 20px;
+        align-items: center;
+        justify-content: space-between;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+      }
+      
+      .logo {
+        font-size: 1.2rem;
+        margin-bottom: 0;
+        text-align: left;
+        width: auto;
+      }
+      
+      .logo img {
+        height: 30px;
+      }
+      
+      .menu-toggle {
+        display: block;
+      }
+      
+      .menu {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: rgba(255,255,255,0.98);
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        padding: 20px;
+      }
+      
+      .menu.active {
+        display: flex;
+      }
+      
+      .menu li {
+        width: 100%;
+      }
+      
+      .menu li a {
+        display: block;
+        padding: 15px;
+        text-align: center;
+        border-radius: 5px;
+        border: 1px solid #e0e0e0;
+        margin-bottom: 5px;
+      }
+      
+      .content {
+        padding: 120px 20px 40px;
+      }
+      
+      .content h1 {
+        font-size: 2rem;
+        margin-bottom: 15px;
+      }
+      
+      .about-text {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 30px;
+        text-align: center;
+      }
+      
+      .contact-section {
+        padding: 25px;
+        gap: 30px;
+      }
+      
+      .form-row {
+        flex-direction: column;
+        gap: 25px;
+      }
+      
+      .contact-form {
+        order: 2;
+      }
+      
+      .image-box {
+        order: 1;
+        margin-bottom: 10px;
+      }
+      
+      .image-box img {
+        max-width: 80%;
+        height: auto;
+      }
+      
+      footer {
+        padding: 20px 15px;
+        font-size: 0.85rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      nav {
+        padding: 12px 15px;
+      }
+      
+      .logo {
+        font-size: 1rem;
+      }
+      
+      .logo > div > span {
+        font-size: 1.2rem !important;
+      }
+      
+      .logo > div > p {
+        font-size: 0.7rem !important;
+      }
+      
+      .content {
+        padding: 130px 15px 30px;
+      }
+      
+      .content h1 {
+        font-size: 1.8rem;
+        margin-bottom: 12px;
+      }
+      
+      .about-text {
+        font-size: 0.95rem;
+        line-height: 1.5;
+        margin-bottom: 25px;
+      }
+      
+      .contact-section {
+        padding: 20px;
+        gap: 25px;
+      }
+      
+      .contact-form input,
+      .contact-form textarea,
+      .contact-form select {
+        padding: 10px;
+        font-size: 0.95rem;
+      }
+      
+      .contact-form button {
+        padding: 12px;
+        font-size: 0.95rem;
+      }
+      
+      .phone-row {
+        flex-direction: column;
+        gap: 10px;
+      }
+      
+      .phone-row select,
+      .phone-row input {
+        width: 100%;
+      }
+      
+      .image-box img {
+        max-width: 90%;
+      }
+      
+      footer {
+        font-size: 0.8rem;
+        padding: 12px 8px;
+      }
+    }
+
+    /* Extra small phones (320px and below) */
+    @media (max-width: 320px) {
+      nav {
+        padding: 10px 12px;
+      }
+      
+      .logo {
+        font-size: 0.9rem;
+      }
+      
+      .logo > div > span {
+        font-size: 1.1rem !important;
+      }
+      
+      .logo > div > p {
+        font-size: 0.6rem !important;
+      }
+      
+      .content {
+        padding: 150px 12px 20px;
+      }
+      
+      .content h1 {
+        font-size: 1.6rem;
+        margin-bottom: 10px;
+      }
+      
+      .about-text {
+        font-size: 0.9rem;
+        line-height: 1.4;
+        margin-bottom: 20px;
+      }
+      
+      .contact-section {
+        padding: 15px;
+        gap: 20px;
+      }
+      
+      .contact-form input,
+      .contact-form textarea,
+      .contact-form select {
+        padding: 9px;
+        font-size: 0.9rem;
+      }
+      
+      .contact-form button {
+        padding: 11px;
+        font-size: 0.9rem;
+      }
+      
+      .image-box img {
+        max-width: 95%;
+      }
+      
+      footer {
+        font-size: 0.75rem;
+        padding: 10px 6px;
+      }
+    }
   </style>
 </head>
 <body>
   <nav>
     <div class="logo">
       <img src="{{ url_for('static', filename='logo2.png') }}" alt="Logo">
-      BHARTIYA BOUDH
+      <div style="display: flex; flex-direction: column;">
+        <span style="font-size: 1.7rem; font-weight: bold; color: #1a1a1a;">BHARTIYA BOUDH MAHASABHA</span>
+        <p style="font-size: 0.9rem; color: #444; margin: 0;">(Regd. Under the Societies Registration Act XXI of 1860) No. B-8 & Bombay Public Trust Act, 1950 (Bom. XXIX of 1950) No. F-611(N)</p>
+      </div>
     </div>
+    
     <ul class="menu">
       <li><a href="/">Home</a></li>
       <li><a href="/about">About</a></li>
       <li><a href="/events">Events</a></li>
-      <li><a href="/contact">Contact</a></li>
+      <li><a href="/contact" class="active">Contact</a></li>
     </ul>
+    
+    <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu">☰</button>
   </nav>
 
   <div class="content">
@@ -191,21 +447,31 @@
     </div>
   </div>
 
+  <footer>
+    Bhartiya Boudh Mahasabha's Patron was Dr. B.R. Ambedkar & Mr. Vali Sinha. Promoting Equality, Freedom & Fraternity<br>
+    &copy; 1957 Bhartiya Boudh Mahasabha. All rights reserved.
+  </footer>
+
   <script>
-    const currentPage = location.pathname.split('/').pop();
+    function toggleMenu() {
+      const menu = document.querySelector('.menu');
+      menu.classList.toggle('active');
+    }
+
+    // Close mobile menu when link is clicked
     document.querySelectorAll('.menu li a').forEach(link => {
-      if (link.getAttribute('href') === currentPage) {
+      link.addEventListener('click', () => {
+        document.querySelector('.menu').classList.remove('active');
+      });
+    });
+
+    // Highlight current page
+    const currentPath = window.location.pathname;
+    document.querySelectorAll('.menu li a').forEach(link => {
+      if (link.getAttribute('href') === currentPath) {
         link.classList.add('active');
       }
     });
-
-  const currentPath = window.location.pathname;
-  document.querySelectorAll('.menu li a').forEach(link => {
-    if (link.getAttribute('href') === currentPath) {
-      link.classList.add('active');
-    }
-  });
-
   </script>
 </body>
 </html>

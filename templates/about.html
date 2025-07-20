@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About - Bhartiya Boudh Mahasabha</title>
   <link rel="icon" type="image/png" href="logo2.png">
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans&display=swap" rel="stylesheet">
@@ -33,11 +34,23 @@
       gap: 10px;
     }
     .logo img { height: 40px; }
+    
     .menu {
       display: flex;
       gap: 25px;
       list-style: none;
     }
+    
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 5px;
+      color: #1a1a1a;
+    }
+    
     .menu li a {
       text-decoration: none;
       color: #1a1a1a;
@@ -53,7 +66,7 @@
     }
 
     .content {
-      padding: 140px 50px 50px;
+      padding: 180px 50px 50px;
       max-width: 1000px;
       margin: auto;
     }
@@ -113,6 +126,205 @@
       border-radius: 10px;
       background: #fff;
     }
+
+    footer {
+      background-color: #1a1a1a;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+      font-size: 0.95rem;
+    }
+
+    /* Mobile Responsive Styles */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: row;
+        padding: 15px 20px;
+        align-items: center;
+        justify-content: space-between;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+      }
+      
+      .logo {
+        font-size: 1.2rem;
+        margin-bottom: 0;
+        text-align: left;
+        width: auto;
+      }
+      
+      .logo img {
+        height: 30px;
+      }
+      
+      .menu-toggle {
+        display: block;
+      }
+      
+      .menu {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: rgba(255,255,255,0.98);
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        padding: 20px;
+      }
+      
+      .menu.active {
+        display: flex;
+      }
+      
+      .menu li {
+        width: 100%;
+      }
+      
+      .menu li a {
+        display: block;
+        padding: 15px;
+        text-align: center;
+        border-radius: 5px;
+        border: 1px solid #e0e0e0;
+        margin-bottom: 5px;
+      }
+      
+      .content {
+        padding: 120px 20px 30px; /* Reduced top padding */
+      }
+      
+      .content h1 {
+        font-size: 2rem;
+        margin-bottom: 15px;
+      }
+      
+      .about-text {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 25px;
+        text-align: left;
+      }
+      
+      .info-section {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+      }
+      
+      .info-box {
+        width: 100%;
+        min-width: auto;
+        padding: 20px;
+      }
+      
+      .info-box h2 {
+        font-size: 1.2rem;
+      }
+      
+      .info-box p {
+        font-size: 0.95rem;
+      }
+      
+      .qr-section img {
+        width: 150px;
+        height: 150px;
+      }
+      
+      footer {
+        padding: 20px 15px;
+        font-size: 0.85rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      nav {
+        padding: 12px 15px; /* Reduced navbar padding */
+      }
+      
+      .logo {
+        font-size: 1rem;
+      }
+      
+      .logo > div > span {
+        font-size: 1.2rem !important;
+      }
+      
+      .logo > div > p {
+        font-size: 0.7rem !important;
+      }
+      
+      .content {
+        padding: 130px 15px 20px; /* Reduced top padding for smaller screens */
+      }
+      
+      .content h1 {
+        font-size: 1.6rem;
+      }
+      
+      .about-text {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        margin-bottom: 20px;
+      }
+      
+      .info-box {
+        padding: 15px;
+      }
+      
+      .info-box h2 {
+        font-size: 1.1rem;
+      }
+      
+      .info-box p {
+        font-size: 0.9rem;
+      }
+      
+      .qr-section img {
+        width: 120px;
+        height: 120px;
+      }
+      
+      footer {
+        font-size: 0.8rem;
+        padding: 12px 8px;
+      }
+    }
+
+    /* Extra small phones (320px and below) */
+    @media (max-width: 320px) {
+      nav {
+        padding: 10px 12px;
+      }
+      
+      .logo {
+        font-size: 0.9rem;
+      }
+      
+      .logo > div > span {
+        font-size: 1.1rem !important;
+      }
+      
+      .logo > div > p {
+        font-size: 0.6rem !important;
+      }
+      
+      .content {
+        padding: 150px 12px 15px; /* Reduced top padding for very small screens */
+      }
+      
+      .content h1 {
+        font-size: 1.4rem;
+      }
+      
+      .about-text {
+        font-size: 0.85rem;
+        line-height: 1.4;
+      }
+    }
   </style>
 </head>
 <body>
@@ -121,14 +333,20 @@
   <nav>
     <div class="logo">
       <img src="{{ url_for('static', filename='logo2.png') }}" alt="Logo">
-      BHARTIYA BOUDH
+      <div style="display: flex; flex-direction: column;">
+        <span style="font-size: 1.7rem; font-weight: bold; color: #1a1a1a;">BHARTIYA BOUDH MAHASABHA</span>
+        <p style="font-size: 0.9rem; color: #444; margin: 0;">(Regd. Under the Societies Registration Act XXI of 1860) No. B-8 & Bombay Public Trust Act, 1950 (Bom. XXIX of 1950) No. F-611(N)</p>
+      </div>
     </div>
+    
     <ul class="menu">
       <li><a href="/">Home</a></li>
-      <li><a href="/about">About</a></li>
+      <li><a href="/about" class="active">About</a></li>
       <li><a href="/events">Events</a></li>
       <li><a href="/contact">Contact</a></li>
     </ul>
+    
+    <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu">☰</button>
   </nav>
 
   <!-- Main Content -->
@@ -136,28 +354,59 @@
     <h1>About Bhartiya Boudh Mahasabha</h1>
 
     <p class="about-text">
-      The Bhartiya Boudh Mahasabha is committed to promoting the teachings of Lord Buddha and the values of Dr. B.R. Ambedkar. We work toward social transformation through Dhamma, organizing awareness campaigns, spiritual teachings, and social development initiatives that spread harmony, equality, and brotherhood in society.
+      The Bharatiya Bouddha Mahasabha is an organization founded by Dr. Babasaheb Ambedkar in 1955 through Shri Wamanrao Godbole, Nagpur. It was registered in 1956 under the Society Act of 1860, Registration No. B-8, and in 1963 under the Bombay Public Trust Act, 1950 (Bom. XXIX of 1950), Registration No. F-611(N). It is also listed in Schedule-1 of the Charity Commissioner, Nagpur. This organization is entirely different from the Buddhist Society of India (another registered organization formed by Dr. Ambedkar in 1955).
     </p>
 
-    <div class="info-section">
-      <div class="info-box">
-        <h2>Our Mission</h2>
-        <p>To uplift society through the Dhamma teachings of non-violence, compassion, and wisdom. We aim to empower every individual through knowledge, equality, and unity.</p>
-      </div>
-      <div class="info-box">
-        <h2>Our Vision</h2>
-        <p>To build a peaceful and awakened society where every individual lives with dignity, guided by the noble path of Buddhism and Ambedkarite thoughts.</p>
-      </div>
-    </div>
+    <p class="about-text">
+      <strong>Founding Leadership (1956):</strong><br>
+      • <strong>President:</strong> Mr. K. G. Patil<br>
+      • <strong>Vice President:</strong> Bhikshu Rashtrapal<br>
+      • <strong>General Secretary:</strong> Shri W. M. Godbole<br>
+      • <strong>Joint Secretary:</strong> Shri N. M. Raut<br>
+      • <strong>Treasurer:</strong> Shri S. F. Jiwne<br>
+      • <strong>Members:</strong> Shri S. M. Meshram, Shri G. M. Meshram, Shri L. G. Mahesh, Shri H. A. Patil
+    </p>
 
-    <div class="qr-section">
-      <h2>Scan to Connect with Us</h2>
-      <img src="{{ url_for('static', filename='qr2.png') }}" alt="QR Code">
-    </div>
+    <p class="about-text">
+      <strong>Current Leadership:</strong><br>
+      • <strong>National President:</strong> Bhante Arya Nagarjun Surai Sasai<br>
+      • <strong>General Secretary:</strong> Shri Anand Tukaram Patil
+    </p>
+
+    <p class="about-text">
+      <strong>Current Office:</strong><br>
+      Plot No. 721, Tripitak Smruti, Buddhanagar, Nagpur – 440017
+    </p>
+
+    <p class="about-text">
+      This organization was established to carry forward the Buddhist revolution initiated by Dr. Babasaheb Ambedkar on 14th October 1956 at Deekshabhoomi. The movement is not only religious but also social. The objective is to unite people based on the values of equality, fraternity, and freedom as envisioned by Dr. Babasaheb Ambedkar. There is no intention to undermine any organization.
+    </p>
+
+    <p class="about-text">
+      Currently, the national president of the organization is Bhante Arya Nagarjun Surai Sasai, and the General Secretary is Shri Anand Tukaram Patil. The present office of the organization is at Plot No. 721, Tripitak Smruti, Buddhanagar, Nagpur – 440017.
+    </p>
   </div>
 
-  <!-- Active nav highlight -->
+  <footer>
+    Bhartiya Boudh Mahasabha's Patron was Dr. B.R. Ambedkar & Mr. Vali Sinha. Promoting Equality, Freedom & Fraternity<br>
+    &copy; 1957 Bhartiya Boudh Mahasabha. All rights reserved.
+  </footer>
+
+  <!-- JavaScript -->
   <script>
+    function toggleMenu() {
+      const menu = document.querySelector('.menu');
+      menu.classList.toggle('active');
+    }
+
+    // Close mobile menu when link is clicked
+    document.querySelectorAll('.menu li a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.querySelector('.menu').classList.remove('active');
+      });
+    });
+
+    // Highlight current page
     const currentPath = window.location.pathname;
     document.querySelectorAll('.menu li a').forEach(link => {
       if (link.getAttribute('href') === currentPath) {
@@ -165,5 +414,6 @@
       }
     });
   </script>
+
 </body>
 </html>
